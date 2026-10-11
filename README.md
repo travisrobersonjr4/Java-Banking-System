@@ -1,40 +1,31 @@
 # Java Banking System
 
-A console-based banking simulation built with **Java 17**, demonstrating object-oriented programming, collections, validation, and basic transaction operations.
+A simple banking program made in Java. It runs in the terminal, so there's no website or app interface.
 
-## Features
-- Create an account with an automatically generated account number and four-digit demo PIN
-- Automatically sign in after creating an account, or log in later
-- Check balances, deposit and withdraw funds
-- Transfer money between accounts
-- View transaction history
-- Reject invalid amounts and insufficient-funds withdrawals
+You can create an account, log in with an account number and PIN, check your balance, deposit or withdraw money, and send money to another account. There's also a transaction history.
 
-## Run the project
-From the repository root, with Java 17 installed:
+## How to run it
+
+You'll need Java installed. Open the project in VS Code, or run these commands from the project folder:
 
 ```bash
 javac -d out src/BankAccount.java src/BankingSystem.java
 java -cp out BankingSystem
 ```
 
-You can also open the repository folder in VS Code with the Java Extension Pack and run `BankingSystem.main()`.
+## Try it out
 
-## Example accounts
+You can make a new account from the main menu. The program will show you your account number and log you in.
 
-| Account | Demo PIN | Initial balance |
-| --- | --- | --- |
-| 1001 (Alex) | 1234 | $500.00 |
-| 1002 (Jordan) | 5678 | $250.00 |
+There are also two test accounts:
 
-For a new account, select **Create account**; the generated account number will be displayed and you will be signed in automatically.
+- Account `1001`, PIN `1234`
+- Account `1002`, PIN `5678`
 
-## Implementation
+## A few things to know
 
-The project uses two classes: `BankingSystem` handles the menu and a `LinkedHashMap` of accounts; `BankAccount` implements balances and transactions. Amounts are represented internally as `long` cents to avoid floating-point rounding errors.
+The program uses Java classes and a map to keep track of accounts. It checks for invalid amounts and won't let you withdraw more than you have.
 
-**Educational demonstration only:** data is stored in memory and disappears when the application exits. PINs are stored as plain text for demonstration purposes, so never enter a real PIN. It is not suitable for handling actual banking data.
+Right now, accounts are only saved while the program is running. Once you close it, any accounts you created are gone. This is just a practice project, not a real banking application. Don't use a real PIN.
 
-## Ideas for future improvements
-
-Persist data to a database, securely hash PINs, write automated JUnit tests, and expose functionality through a Spring Boot API.
+I'd like to add permanent account storage and a better interface later.
